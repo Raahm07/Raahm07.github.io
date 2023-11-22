@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+    ul {
+        list-style-type: none;
+    }
+    li {
+        display: inline;
+    }
+    header {
+        background-color: #2c2c2c; 
+        padding: 20px; 
+        text-align: center; 
+        color: white; 
+        overflow: hidden;
+    }
+
+    header img {
+        max-width: 390px; 
+        height: auto; 
+        border-radius: 0%; 
+        margin-right: 20px;
+        color: #18A383;
+    }
+    body {     
+        font-family: Arial;
+        background-color:#18A383; 
+        box-sizing:border-box; margin:0;     
+        height: 100; 
+    } 
+    .container {     
+        width: 40%;     
+        margin: 1em auto;     
+        padding: 1em 5%;
+    } 
+    .field{     
+        border: solid 1px black;     
+        padding: 10px; 
+    } 
+    .field:focus{     
+            border-color: #18A383; 
+    } 
+    form{     
+        background-color: rgba(250, 243, 233, 0.74);     
+        border-radius: 3px;     
+        position: relative;     
+        width:300px; color:black;     
+        font-size: 11px;     
+        padding: 20px;     
+        margin: 0 auto; 
+    } 
+    .btn{     
+        border-radius: 2px; 
+    } 
+    .cover {     
+        object-fit: cover; 
+    } 
+</style>
+</head>
+<body>    
+    <header id="main-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/OPPO_LOGO_2019.svg/2560px-OPPO_LOGO_2019.svg.png" >
+        </a>
+        <nav>
+            <ul>
+                <li><a href="pia.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="CPYP.html">Catalogo de precios y Productos</a></li>
+                <li><a href="Promo.html">Promociones</a></li>
+                <li><a href="Sucursales.html">Sucursales</a></li>
+                <li><a href="contacto.html">Solicitud de Empleo</a></li>                
+            </ul>
+        </ul>
+        <nav>
+        </header>
+        <br><br>                                              
+<div class="container">
+<form name="registro">
+<h1 align="center">Solicitud de empleo para trabajar con Opoo</h1>
+Nombre:
+<input type="text" width="300" name="nombre" id="nombre" class="field"><br><br>
+<fieldset>
+<legend>Estado Civil</legend>
+<label><input type="radio" name="estado" id="radio1" value="soltero"> Soltero(a)</label> 
+<label><input type="radio" name="estado" id="radio2" value="casado"> Casado(a)</label>
+<label><input type="radio" name="estado" id="radio3" value="Viudo"> Viudo(a)</label>
+<label><input type="radio" name="estado" id="radio4" value="otro"> Otro</label>
+</fieldset>
+<br>
+<fieldset>
+<legend>Habilidades que maneje</legend> <label>
+<input type="checkbox" id="check1" value="word"> Word</label>
+<label> <input type="checkbox" id="check2" value="excel"> Excel</label>
+<label><input type="checkbox" id="check3" value="Software"> Software</label><br>
+<label><input type="checkbox" id="check4" value="Mantenimiento de equipos"> Mantenimiento de equipos</label>
+<label><input type="checkbox" id="check5" value="Marketing Digital "> Marketing Digital </label>
+</fieldset><br>
+<label for="sucursal">Donde vives</label><br><br> 
+<select name="sucursal" id="tienda" onchange="obtenerdatos">
+<option id="op1" value="Nuevo Leon" selected>Nuevo Leon</option> 
+<option id="op2" value="Mexico">Mexico</option>
+<option id="op3" value="Sonora">Sonora</option>
+<option id="op4" value="Chihuahua">Chihuahua</option>
+<option id="op5" value="Puebla">Puebla</option>
+</select><br><br> 
+<center>
+<input type="button" name="btn1" value="Enviar" id="bt" onclick="obtenerdatos()"></center>
+<br><br>
+<hr>
+<label>
+<h2>Datos guardados</h2>
+</label>
+<table width="300">
+<tr>
+<td>Nombre:</td>
+<td><input type="text" name="nombreobtenido" id="nombreobtenido"></td>
+</tr>
+<td>Estado Civil:</td>
+<td><input type="text" name="estadocivil" id="estadocivil"></td>
+</tr> <tr>
+<td>Tus habilidades son:</td>
+<td><input type="text" name="tushabilidades" id="tushabilidades"></td>
+</tr> <tr>
+<td>Estado donde vives:</td> <td><input type="text" name="tusucursal" id="tusucursal"></td>
+</tr>
+</table>
+
+<script>
+
+    function obtenerdatos(){
+    var nombre = document.getElementById('nombre').value;
+    var cadena="";
+    document.registro.nombreobtenido.value=nombre;
+    if (document.getElementById('radio1').checked)
+    {
+    var estado="Soltero(a)"; 
+    document.registro.estadocivil.value=estado;
+    }
+    if(document.getElementById('radio2').checked)
+    {
+    var estado="Casado(a)";
+    document.registro.estadocivil.value=estado;
+    }
+    if (document.getElementById("radio3").checked)
+    {
+    var estado="Viudo(a)";
+    document.registro.estadocivil.value=estado;
+    }
+    if (document.getElementById("radio4").checked)
+    {
+    var estado="Otro";
+    document.registro.estadocivil.value=estado;
+    }
+    var sub1 = document.getElementById('check1'); 
+    var sub2 = document.getElementById('check2');
+    var sub3= document.getElementById('check3'); 
+    var sub4 = document.getElementById('check4');
+    var sub5 = document.getElementById('check5');
+    var result="";
+    if (sub1.checked == true){
+    var ss1 = sub1.value; 
+    result = ss1;
+    }
+    if (sub2.checked == true){
+    var ss2 = sub2.value;
+    result = result+ "," + ss2; 
+    } 
+    if (sub3.checked == true){
+    var ss3 = sub3.value;
+    result = result+ "," + ss3;
+    }
+    if (sub4.checked == true){
+    var ss4 = sub4.value;
+    result = result + "," + ss4;
+    }
+    if (sub5.checked == true){
+    var ss5 = sub5.value;
+    result = result + "," + ss5;
+    }
+    document.registro.tushabilidades.value=result;  
+    var dato=document.getElementById("tienda"); 
+    var suc=dato.options[tienda.selectedIndex].value;
+    document.registro.tusucursal.value=suc;
+    }
+    </script>
+
+</body>
+</html>
